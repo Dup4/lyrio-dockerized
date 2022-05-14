@@ -28,7 +28,8 @@ WORKDIR /app
 COPY --from=build /app ./
 
 RUN apk add tzdata \
-    && apk add sed
+    && apk add sed \
+    && apk add git
 
 ENTRYPOINT ["/app/docker_entry.sh"]
 

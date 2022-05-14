@@ -42,6 +42,18 @@ if [ -d "${EXPORT_UI_PATH}" ]; then
     cp -a "${UI_PATH}"/* "${EXPORT_UI_PATH}"/
 fi
 
+if [ -z "${LYRIO_CONFIG_FILE}" ]; then
+    if [ ! -d "/app/config" ]; then
+        mkdir -p /app/config
+    fi
+
+    if [ ! -f "/app/config/config.yaml" ]; then
+        cp /app/lyrio/config-example.yaml /app/config/config.yaml
+    fi
+
+    LYRIO_CONFIG_FILE=/app/config/config.yaml
+fi
+
 if [ X"${1}" = X"primary" ]; then
     cd /app/lyrio
     exec npm run start:prod
