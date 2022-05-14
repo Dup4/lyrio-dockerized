@@ -6,6 +6,7 @@ COPY ./ ./lyrio-dockerized
 
 RUN cd ./lyrio-dockerized \
     && mkdir packages \
+    && cd packages \
     && git clone https://github.com/lyrio-dev/lyrio --depth=1 \
     && git clone https://github.com/lyrio-dev/ui --depth=1 \
     && cd /app/lyrio-dockerized/packages/ui \
