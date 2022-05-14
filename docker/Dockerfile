@@ -9,8 +9,10 @@ RUN cd /app/lyrio-dockerized/packages/ui \
     && NODE_OPTIONS="--max_old_space_size=8192" yarn build \
     && rm -rf node_modules \
     && cd /app/lyrio-dockerized/packages/lyrio \
-    && yarn --prod \
+    && yarn \
     && yarn build \
+    && rm -rf node_modules \
+    && yarn --prod \
     && cd /app/lyrio-dockerized/packages \
     && cp -a ./ui /app/ui \
     && cp -a ./lyrio /app/lyrio \
