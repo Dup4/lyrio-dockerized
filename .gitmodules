@@ -1,0 +1,6 @@
+[submodule "packages/lyrio"]
+	path = packages/lyrio
+	url = https://github.com/lyrio-dev/lyrio
+[submodule "packages/ui"]
+	path = packages/ui
+	url = https://github.com/lyrio-dev/ui
