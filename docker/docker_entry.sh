@@ -54,6 +54,8 @@ if [ -z "${LYRIO_CONFIG_FILE}" ]; then
     LYRIO_CONFIG_FILE=/app/config/config.yaml
 fi
 
+export LYRIO_CONFIG_FILE
+
 if [ X"${1}" = X"primary" ]; then
     cd /app/lyrio
     exec npm run start:prod
