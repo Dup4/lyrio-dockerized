@@ -4,7 +4,11 @@ USER root
 WORKDIR /app
 COPY ./ ./lyrio-dockerized
 
-RUN cd /app/lyrio-dockerized/packages/ui \
+RUN cd ./lyrio-dockerized \
+    && mkdir packages \
+    && git clone https://github.com/lyrio-dev/lyrio --depth=1 \
+    && git clone https://github.com/lyrio-dev/ui --depth=1 \
+    && cd /app/lyrio-dockerized/packages/ui \
     && yarn \
     && NODE_OPTIONS="--max_old_space_size=8192" yarn build \
     && rm -rf node_modules \
