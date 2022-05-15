@@ -1,8 +1,8 @@
 #! /bin/sh
 
 ret=0
-BASEURL="http://127.0.0.1:2002/api/homepage/getHomepage/"
-if curl --silent --fail "$BASEURL/" >/dev/null; then
+BASEURL="http://127.0.0.1:2002/api/homepage/getHomepage?locale=en_US"
+if curl --silent --fail "$BASEURL" >/dev/null; then
     printf "http ok"
 else
     printf "http error"
