@@ -22,6 +22,7 @@ RUN cd ./lyrio-dockerized \
     && cp -a ./ui /app/ui \
     && cp -a ./lyrio /app/lyrio \
     && cp /app/lyrio-dockerized/docker/docker_entry.sh /app/docker_entry.sh \
+    && cp -a /app/lyrio-dockerized/docker/bin /app/ \
     && chmod +x /app/docker_entry.sh \
     && rm -rf /app/lyrio-dockerized
 
@@ -33,7 +34,10 @@ WORKDIR /app
 COPY --from=build /app ./
 
 RUN apk add tzdata \
-    && apk add sed
+    && apk add sed \
+    && apk add curl
+
+HEALTHCHECK --interval=10s --timeout=10s --start-period=30s --retries=3 CMD [ "/app/bin/healthcheck" ]
 
 ENTRYPOINT ["/app/docker_entry.sh"]
 
