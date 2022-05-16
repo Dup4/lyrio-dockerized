@@ -1,4 +1,4 @@
-<img align="right" width="96px" src="./assets/Moby-logo.webp">
+<img align="right" width="128px" src="./assets/Moby-logo.webp">
 
 # lyrio-dockerized
 
